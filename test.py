@@ -14,14 +14,16 @@ try:
                     output = ""
                     for j in range(X):
                         c = X//2    # 中間
-                        if j == i and j <= c:
-                            output += "y"
-                        elif i > c and j==c:
-                            output += "y"
-                        elif i < c and j == X - (i + 1):
-                            output += "y"
+                        if i <= c:
+                            if j == i or j == X - i -1:
+                                output += "y"
+                            else:
+                                output += "."
                         else:
-                            output += "."
+                            if j == c:
+                                output += "y"
+                            else:
+                                output += "."
                     print(output)
         else:
             print("invalid")
