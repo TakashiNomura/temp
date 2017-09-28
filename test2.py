@@ -1,23 +1,21 @@
-# TODO フィボナッチ数列を求めるプログラムを元に修正する
-
+# coding: UTF-8
 import sys
 
-# 部屋数を返す
-def getroomnum(a):
-    if a < 3:
-        return 1
-    elif a >= 3 and a < 16:
-        b = getroomnum(a-1) + getroomnum(a-2)
-        return b
-    elif a >= 16:
-        c = getroomnum(a-1) + getroomnum(a-2)
-        return c % 16
+# フィボナッチ数を返す
+def fibonacci(n):
+    a1, a2 = 1, 0
+    while n > 0:
+        a1, a2 = a1 + a2, a1
+        n -= 1
+    return a1
 
 lines = sys.stdin.readlines()
 for i, line in enumerate(lines):
     line = line.strip("\n")
     if line.isdigit() == True:
         floor = int(line)
-        room = getroomnum(floor)
-        print(room)
-
+        room = fibonacci(floor)
+        if floor < 16:
+            print(room)
+        if floor >= 16:
+            print(room%16)
