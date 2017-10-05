@@ -1,5 +1,5 @@
-import google from search
-import IPython.core.display from HTML
+from google import search
+from IPython.core.display import HTML
 
 html=""
 for url in search("FF15", num=10, stop=10, tpe="vid"):
